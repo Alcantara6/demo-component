@@ -1,0 +1,37 @@
+a img {
+    display: block;
+}
+
+/*产品缩略图浏览*/
+#product-zoom {
+	float: left;
+	width: 320px;
+	border: 1px solid #bbb;
+	cursor: crosshair;
+}
+#product-zoom img {
+	width: 100%;
+}
+#m-glass {
+	width: 120px; 
+	height: 120px;
+	opacity: 0.7;
+	background: #e5e4e2;
+	position: absolute;
+}
+
+/*放大展示区*/
+#shop-details {
+	margin-left: 330px;
+}
+#zoom-window {	
+	position: absolute;   /* 不占用文字空间 */
+	overflow: hidden;
+	border: 1px solid #ccc;
+}
+#zoom-window>div {
+	position: relative;
+}
+#zoom-window img {
+	position: absolute;
+}

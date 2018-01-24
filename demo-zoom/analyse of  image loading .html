@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chardelete=utf-8 />
+        <title>关于页面图片加载的分析</title>
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    </head>
+    <style>
+        li {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        #img-box1,
+        #img-box2,
+        #img-box3 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        } 
+        #img-box1 {
+            left: 10%;
+        }
+        #img-box2 {
+            left: 40%;
+        }
+        #img-box3 {
+            left: 70%;
+        }
+        #img-box1 > div,
+        #img-box2 > div,
+        #img-box3 > div {
+            position: relative;  
+        }
+        #img-box1 > img,
+        #img-box2 > img,
+        #img-box3 > img {
+            position: absolute;
+        }
+        .point1,
+        .point2,
+        .point3 {
+            height:100px;
+            width: 100px;
+            position: absolute;
+            bottom: 5%;
+            background: red;
+            white-space: pre-line;
+            color: #000;
+            cursor: pointer;
+        }
+        .point1 {
+            left: 10%;
+            background: #b2d;
+        }
+        .point2 {
+            left: 40%;
+            background: #cd6;
+        }
+        .point3 {
+            left: 70%;
+            background: #fcc;
+        }
+    </style> 
+    <body>
+        <h3>按以下要求执行$img_box~$img_box10相关的$(function(){})函数</h3>
+        <ol>       
+            <li>只执行第1个函数（浏览器加载时创建一个临时的div，加载待显示的本地大图），注释掉其余，刷新网页，鼠标滑过3个块，查看图片显示和控制台</li>
+            <li>只执行第2个函数（浏览器加载时创建一个临时的div，加载待显示的本地小图），注释掉其余，刷新网页，鼠标滑过3个块，查看图片显示和控制台</li>
+            <li>只执行第3个函数（浏览器加载时创建一个临时的div，加载待显示的网络图片），注释掉其余，刷新网页，鼠标滑过3个块，查看图片显示和控制台</li>
+            <li>只执行第4个函数（浏览器加载时创建与待显示图片不同路径的图片），注释掉其余，刷新网页，鼠标滑过3个块，查看图片显示和控制台</li>
+            <li>只执行第5个函数（浏览器加载时创建一个无src路径的img元素），注释掉其余，刷新网页，鼠标滑过3个块，查看图片显示和控制台</li>
+            <li>都不执行</li>
+        </ol>
+        
+        <div id="container"></div>
+
+        <div class='point1'>
+            要显示的图片为相对路径，超大尺寸
+        </div>
+        <div class='point2'>
+            要显示的图片为相对路径，小尺寸
+        </div>
+        <div class='point3'>
+            要显示的图片为网络路径
+        </div>
+
+
+        <script>
+            $(function () {        
+                var $img_box1,
+                    $img_box2
+                /* mouseenter事件创建并插入相对路径的图片元素__超大尺寸*/
+                $('.point1').mouseenter(function () {
+                    $img_box1 = $("<div id ='img-box1'><div><img src='images/superbig-image.jpg'></div></div>");
+                    // 如果jQuery对象创建了但还没插入DOM树，使用jQuery的width()获取不到尺寸
+                    console.log('插入DOM树之前jQuery对象本地大图的宽度：' + $img_box1.width());  
+                    // 插入DOM树之之后，jQuery的width()和原生js的offsetWidth、clientWidth获取尺寸
+                    $img_box1.appendTo('#container'); 
+                    console.log('插入DOM树之后本地大图的宽度' + document.querySelector('#img-box1 img').clientWidth + '\n');   
+                }).mouseleave(function () {
+                    $img_box1.remove();
+                });    
+                /* mouseenter事件创建并插入相对路径的图片元素--小尺寸*/
+                $('.point2').mouseenter(function () {
+                    $img_box2 = $("<div id ='img-box2'><div><img src='images/small-image.jpg'></div></div>");
+                    console.log('插入DOM树之前jQuery对象本地小图的宽度：' + $img_box2.width());
+                    $img_box2.appendTo('#container'); 
+                    console.log('插入DOM树之后本地小图的宽度:' + document.querySelector('#img-box2 img').clientWidth + '\n'); 
+                }).mouseleave(function () {
+                    $img_box2.remove();
+                });  
+               /* mouseenter事件创建并插入网络url的图片元素*/
+                $('.point3').mouseenter(function () {
+                    $img_box3 = $("<div id ='img-box3'><div><img src=''></div></div>");
+                    $img_box3.find('img').attr('src','http://www.baidu.com/img/bdlogo.gif');
+                    console.log('插入DOM树之前jQuery对象网络图片的宽度：' + $img_box3.width());
+                    $img_box3.appendTo('#container') 
+                    console.log('插入DOM树之后网络图片的宽度:' + document.querySelector('#img-box3 img').clientWidth + '\n');
+                }).mouseleave(function () {
+                    $img_box3.remove();
+                });
+            });
+                
+            
+            // 浏览器加载时创建一个临时的div，加载待显示的本地大图
+            $(function () {
+                var $img_box6 = $("<div id ='img-box6'><img src='images/superbig-image.jpg'></div>");
+                console.log('that big size local image loaded');
+            })
+            // 浏览器加载时创建一个临时的div，加载待显示的本地小图
+           //  $(function () {
+           //      var $img_box7 = $("<div id ='img-box7'><img src='images/small-image.jpg'></div>");
+           //      console.log('that small size local image loaded');
+           //  })
+           // // 浏览器加载时创建一个临时的div，加载待显示的网络图片*/
+           //  $(function () {
+           //      var $img_box8 = $("<div id ='img-box8'><img src='http://www.baidu.com/img/bdlogo.gif'></div>");
+           //      console.log('that url image loaded');          
+           //  })
+           //  // 浏览器加载时创建与待显示图片不同路径的图片
+           //  $(function () {
+           //      var $img_box9 = $("<div id ='img-box9'><img src='images/another-image.jpg'></div>");
+           //      console.log('element of image with another src created');              
+           //  })
+           //  // 浏览器加载时创建一个无src路径的img元素
+           //  $(function () {
+           //      var $img_box10 = $("<div id ='img-box10'><img src=''></div>");
+           //      console.log('element of image with empty src created');              
+           //  })    
+        </script>       
+    </body>   
+</html>
