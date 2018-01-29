@@ -1,3 +1,4 @@
+// v 1.1 把计算预览窗口大小放在全局作用域,使用.on('load'事件)
 $(function () {
 	var $parent = $("#product-zoom");
 	//现有展示栏的位置、宽高,不能只是内容的高度
@@ -7,12 +8,21 @@ $(function () {
 	var mSize = 120;
 	//创建放大镜
 	var $m_glass = $("<div id ='m-glass'></div>");
-	//创建预览区域,双层div。因为图片的父元素必须relative，但relative会占据原来位置，所以再在外面加一层div，设为absolute
-	//要先把src引入，否则第一次不能出现预览框，为什么？？？？
-	var $zoom_window = $("<div id ='zoom-window'><div><img src='images/product_image_big.jpg'></div></div>");
 	//可不可以不设为全局变量？
 	var dpPos = null;
 	var scale = [];	
+	//创建预览区域,双层div。因为图片的父元素必须relative，但relative会占据原来位置，所以再在外面加一层div，设为absolute
+	//要先把src引入，否则第一次不能出现预览框，为什么？？？？
+	var $zoom_window = $("<div id ='zoom-window'><div><img src='images/product_image_big.jpg'></div></div>");
+	// 先插入文档，才能获得图片大小。设置预览图的大小
+	$zoom_window.appendTo("#shop-details");
+	// v 1.1 把计算预览窗口大小放在全局作用域,使用.on('load'事件)
+	$zoom_window.find('img').on('load',function () {
+		scale = imgScale($zoom_window, $parent);
+	    $zoom_window.width(scale[0] * mSize + "");
+	    $zoom_window.height(scale[1] * mSize + "");
+	    // console.log( $zoom_window.width);
+	});
 	$("#product-zoom a").mouseenter(function (e) {
 		//获取光标位置
 		this.myTitle = this.title;
@@ -28,12 +38,9 @@ $(function () {
 		// 由于是异步加载，根据图片的大小计算预览窗口的尺寸会先于图片完成
 		//  此时图片尺寸为0，则计算出的预览窗口的尺寸为0
 		//  第二次mouseenter时图片已加载完成，计算出需要的预览窗口
+		//  v 1.1 把图片src和计算预览窗口放在全局作用域,提高性能
 		$zoom_window.find('img').attr('src',this.href);
-		$zoom_window.appendTo("#shop-details");
-		// 先插入文档，才能获得图片大小。设置预览图的大小
-		scale = imgScale($zoom_window, $parent);
-		$zoom_window.width(scale[0] * mSize + "");
-		$zoom_window.height(scale[1] * mSize + "");
+		$zoom_window.show();
 	});
 
 	$("body").on("mousemove", "#m-glass", function(e) {
@@ -61,9 +68,8 @@ $(function () {
 	$parent.mouseleave(function() {
 			$(this).find("a").attr("title", this.myTitle);
 			$m_glass.remove();
-			$zoom_window.remove();
+			$zoom_window.hide();
 		});
-
 	// 改变放大镜位置的函数
 	function showGlass(e, dpPos, dpWidth, dpHeight) {
 		var mLeft = Math.min(Math.max((e.pageX - mSize/2), dpPos.left), 
@@ -77,8 +83,8 @@ $(function () {
 	}
 	//预览区大小：大图/小图*放大镜尺寸
 	function imgScale($big, $small) {
- 		// 必须先把元素插入文档才能获取大小
- 		var big_width = $big.find("img").width();
+			// 必须先把元素插入文档才能获取大小
+		var big_width = $big.find("img").width();
 		var small_width = $small.find("img").width();
 		var scaleX = big_width/small_width;
 		var big_height = $big.find("img").height();
@@ -87,3 +93,4 @@ $(function () {
 		return [scaleX, scaleY];
 	}
 });
+

@@ -26,6 +26,7 @@ a img {
 }
 #zoom-window {	
 	position: absolute;   /* 不占用文字空间 */
+	display: none;
 	overflow: hidden;
 	border: 1px solid #ccc;
 }
