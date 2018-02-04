@@ -1,5 +1,9 @@
 <!-- 不能采用多个元素的过渡方式（transition包裹多个元素，这样的话多个元素不能同时过渡，而是按顺序来） -->
 <!-- v-bind transition的name属性，实现不同方式的切换 -->
+<!-- rev.2018-2-1: 
+runInv内增加幻灯片始终向左滑动的；
+点击同一tab，幻灯片不滑动； -->
+
 <template>
 	<div id="slideshow" @mouseleave="runInv" @mouseenter="clearInv">
 		<div class='slideshow-pics'>
@@ -139,9 +143,15 @@ export default {
 			if(index < this.currentIndex) {
 				this.slideDirection = 'toRight';
 			}
-			this.gotoPic(index);
+			if(index !== this.currentIndex) {
+				this.gotoPic(index);
+			}
+			else {
+				return false;
+			}
 	    },	    	    
 	    runInv() {
+    	    this.slideDirection='toLeft';
     	    this.invId = setInterval(() => {
 	    		this.gotoPic(this.nextIndex);
     	    },this.interval);
