@@ -1,7 +1,7 @@
 轮播图
 ---
 ### jQuery方法
-**预览地址**：[jQuery轮播--滚动](https://alcantara6.github.io/demo-component/slideshow_by_jQuery/zoom.html/slideShow_roll.html)，[jQuery轮播--淡入淡出](https://alcantara6.github.io/demo-component/slideshow_by_jQuery/zoom.html/slideShow_fade.html)  
+**预览地址**：[jQuery轮播--滚动](https://alcantara6.github.io/demo-component/slideshow_by_jQuery/slideShow_roll.html)，[jQuery轮播--淡入淡出](https://alcantara6.github.io/demo-component/slideshow_by_jQuery/slideShow_fade.html)  
 jQuery方法实现幻灯片/轮播效果，思路为图片元素横向排列，鼠标mouseover事件获取当前图片序列，jQuery动画根据序列改变图片集的位置。
 
 #### 项目特点

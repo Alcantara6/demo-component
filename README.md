@@ -5,7 +5,7 @@ jQuery--放大镜demo
 ---
 预览地址: [放大镜](https://alcantara6.github.io/demo-component/demo-zoom/zoom.html)，[图片异步加载的测试](https://alcantara6.github.io/demo-component/demo-zoom/analyse_of_image_loading.html)  
 [博客：用jQuery编写放大镜效果以及图片异步加载的测试](http://blog.csdn.net/alcantara/article/details/78117956 '点击查看博文')这是一篇关于本人编写的放大镜demo的详细博文，包含对关键点、bug的分析，以及针对图片异步加载的测试。  
-![放大镜插件效果图](./demo-zoom/images/demo展示效果.png '效果图')  
+![放大镜插件效果图](./demo-zoom/images/demo展示效果.jpg '效果图')  
 
 #### 项目特点
 1. 函数封装良好，代码层次清晰、简洁，总共不足70行（还可再优化）
@@ -22,7 +22,7 @@ jQuery--放大镜demo
 轮播图
 ---
 ### 1. jQuery方法
-**预览地址**：[jQuery轮播--滚动](https://alcantara6.github.io/demo-component/slideshow_by_jQuery/zoom.html/slideShow_roll.html)，[jQuery轮播--淡入淡出](https://alcantara6.github.io/demo-component/slideshow_by_jQuery/zoom.html/slideShow_fade.html)  
+**预览地址**：[jQuery轮播--滚动](https://alcantara6.github.io/demo-component/slideshow_by_jQuery/slideShow_roll.html)，[jQuery轮播--淡入淡出](https://alcantara6.github.io/demo-component/slideshow_by_jQuery/slideShow_fade.html)  
 jQuery方法实现幻灯片/轮播效果，思路为图片元素横向排列，鼠标mouseover事件获取当前图片序列，jQuery动画根据序列改变图片集的位置。
 
 #### 项目特点
