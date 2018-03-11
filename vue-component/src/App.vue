@@ -1,46 +1,38 @@
 <template>
     <div id="app">
-<!--    <slideshow1 :pictures="pictures"></slideshow1>
-        <slideshow2 :pictures="pictures"></slideshow2>  
-        <slideshow3 :pictures="pictures"></slideshow3> -->
-        <slideshow-final :pictures="pictures"></slideshow-final>
+        <slideshow-final :pictures="pictures" :interval="interval"></slideshow-final>
 
     </div>
 </template>
 
 <script>
-import slideshow1 from './components/slideshow1'
-import slideshow2 from './components/slideshow2'
-import slideshow3 from './components/slideshow3'
 import slideshowFinal from './components/slideshow-final'
 
 export default {
   name: 'App',
   components: {
-    slideshow1,
-    slideshow2,
-    slideshow3,
     slideshowFinal
   },
   data() {
     return {
       pictures: [
          {
-           title: 'DRAW:24 JANUARY',
-           img_url: require('./assets/slidepics/1-slidepic.jpg'),
-           link: 'https://www.uefa.com/uefanationsleague/news/newsid=2522564.html#uefa+nations+league+draw+seedings'
+           title: '战争策略3D手游《战地指挥官》给你一场竞技盛宴',
+           img_url: require('./assets/slidepics/1.jpg'),
+           link: 'http://ku.u.360.cn/raiders.php?wzId=229281&soft_id=3842368'
          },
          {
-           title: 'UEFA CLUB LICENSING REPORT',
-           img_url: require('./assets/slidepics/2-slidepic.jpg'),
-           link: 'https://www.uefa.com/insideuefa/protecting-the-game/club-licensing-and-financial-fair-play/news/newsid=2529909.html#uefa+report+shows+footballs+financial+upswing'
+           title: '《苍狼诀》百变时装系统蓄势待发',
+           img_url: require('./assets/slidepics/2.jpg'),
+           link: 'http://ng.d.cn/canglangjue/news/detail_543294_1.html'
          },
          {
-           title: 'WATCH THE FIRST EPISODE NOW',
-           img_url: require('./assets/slidepics/3-slidepic.jpg'),
-           link: 'https://www.uefa.com/women/news/newsid=2529265.html#uefa+press+play+vlog+series+live'
+           title: 'TapTap CJ 抢先知',
+           img_url: require('./assets/slidepics/3.jpg'),
+           link: 'http://www.sohu.com/a/157624597_535014'
          }
-      ]
+      ],
+      interval: 3000
     }
   }
 }
@@ -81,7 +73,7 @@ export default {
 
     /* 宽度要与图片相等 */
     #slideshow {
-        max-width: 1000px;
+        max-width: 100%;
         margin-bottom: 100px;
     }
 </style>

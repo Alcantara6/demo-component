@@ -90,7 +90,8 @@
             $(function () {        
                 var $img_box1,
                     $img_box2
-                /* mouseenter事件创建并插入相对路径的图片元素__超大尺寸*/
+
+                 // mouseenter事件创建并插入相对路径的图片元素__超大尺寸
                 $('.point1').mouseenter(function () {
                     $img_box1 = $("<div id ='img-box1'><div><img src='images/superbig-image.jpg'></div></div>");
                     // 如果jQuery对象创建了但还没插入DOM树，使用jQuery的width()获取不到尺寸
@@ -101,7 +102,8 @@
                 }).mouseleave(function () {
                     $img_box1.remove();
                 });    
-                /* mouseenter事件创建并插入相对路径的图片元素--小尺寸*/
+
+                 // mouseenter事件创建并插入相对路径的图片元素--小尺寸
                 $('.point2').mouseenter(function () {
                     $img_box2 = $("<div id ='img-box2'><div><img src='images/small-image.jpg'></div></div>");
                     console.log('插入DOM树之前jQuery对象本地小图的宽度：' + $img_box2.width());
@@ -110,7 +112,8 @@
                 }).mouseleave(function () {
                     $img_box2.remove();
                 });  
-               /* mouseenter事件创建并插入网络url的图片元素*/
+
+                // mouseenter事件创建并插入网络url的图片元素
                 $('.point3').mouseenter(function () {
                     $img_box3 = $("<div id ='img-box3'><div><img src=''></div></div>");
                     $img_box3.find('img').attr('src','http://www.baidu.com/img/bdlogo.gif');
@@ -126,28 +129,42 @@
             // 浏览器加载时创建一个临时的div，加载待显示的本地大图
             $(function () {
                 var $img_box6 = $("<div id ='img-box6'><img src='images/superbig-image.jpg'></div>");
-                console.log('that big size local image loaded');
+                console.log('that big size local image loaded');  
+                // 第一次插入DOM之后大图有宽度，插入之前没有；其它图都没宽度
+                // 第二次所有图插入之前无宽度，插入之后有  
             })
+
             // 浏览器加载时创建一个临时的div，加载待显示的本地小图
-           //  $(function () {
-           //      var $img_box7 = $("<div id ='img-box7'><img src='images/small-image.jpg'></div>");
-           //      console.log('that small size local image loaded');
-           //  })
-           // // 浏览器加载时创建一个临时的div，加载待显示的网络图片*/
-           //  $(function () {
-           //      var $img_box8 = $("<div id ='img-box8'><img src='http://www.baidu.com/img/bdlogo.gif'></div>");
-           //      console.log('that url image loaded');          
-           //  })
-           //  // 浏览器加载时创建与待显示图片不同路径的图片
-           //  $(function () {
-           //      var $img_box9 = $("<div id ='img-box9'><img src='images/another-image.jpg'></div>");
-           //      console.log('element of image with another src created');              
-           //  })
-           //  // 浏览器加载时创建一个无src路径的img元素
-           //  $(function () {
-           //      var $img_box10 = $("<div id ='img-box10'><img src=''></div>");
-           //      console.log('element of image with empty src created');              
-           //  })    
+            $(function () {
+                var $img_box7 = $("<div id ='img-box7'><img src='images/small-image.jpg'></div>");
+                console.log('that small size local image loaded');
+                // 第一次插入DOM之后小图有宽度，插入之前没有；其它图都没宽度
+                // 第二次所有图插入之前无宽度，插入之后有  
+            })
+
+           // 浏览器加载时创建一个临时的div，加载待显示的网络图片*/
+            $(function () {
+                var $img_box8 = $("<div id ='img-box8'><img src='http://www.baidu.com/img/bdlogo.gif'></div>");
+                console.log('that url image loaded');
+                // 第一次插入DOM之后网络图有宽度，插入之前没有；其它图都没宽度
+                // 第二次所有图插入之前无宽度，插入之后有                
+            })
+
+            // 浏览器加载时创建与待显示图片不同路径的图片
+            $(function () {
+                var $img_box9 = $("<div id ='img-box9'><img src='images/another-image.jpg'></div>");
+                console.log('element of image with another src created'); 
+                // 第一次插入DOM之后、之前所有图都没宽度
+                // 第二次所有图插入之前无宽度，插入之后有                       
+            })
+
+            // 浏览器加载时创建一个无src路径的img元素
+            $(function () {
+                var $img_box10 = $("<div id ='img-box10'><img src=''></div>");
+                console.log('element of image with empty src created');
+                // 第一次插入DOM之后、之前所有图都没宽度
+                // 第二次所有图插入之前无宽度，插入之后有                  
+            })   
         </script>       
     </body>   
 </html>

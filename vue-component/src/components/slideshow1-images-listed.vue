@@ -1,13 +1,14 @@
-<!-- 采用将图片ul横向排列，根据index计算绝对位置和css3过渡的方式
-为了使ul绝对定位，需要用js计算幻灯片wrap框的高度，且首尾切换效果不佳
-因此使用图片v-show加vue过渡的方式！ -->
-<!-- 
-	如何只给出一个宽度，让组件图片响应式渲染。
+<!--     
+    采用将图片ul横向排列，根据index计算绝对位置和css3过渡的方式
+    为了使ul绝对定位，需要用js计算幻灯片wrap框的高度，且首尾切换效果不佳
+    因此使用图片v-if加vue过渡的方式
+ 
+	采用图片ul横向排列,如何只给出一个宽度，让组件图片响应式渲染。
 	1.幻灯图片自适应窗口————利用设定宽度%
 	(1)max-width相对父元素100%(单张图片是相对浏览器窗口，父元素继承浏览器窗口宽度),
 	如要实现图片左右切换，ul要设置足够宽度，使图片横向排列
-	ul设置300%l，i设置33.333333%, img设置max-width为100%（li元素的100%） 
-	(2)js实现，mounted周期和window.onsize调用，但是window.onsize较繁琐
+	ul设置300%，li设置33.333333%, img设置max-width为100%（li元素的100%） 
+	(2)js实现，mounted周期window.onsize调用，但是window.onsize较繁琐
 	slidePicWidth() {
 	    var slideshowWidth = document.querySelector('#slideshow').clientWidth;
 	    var slidePic = document.querySelectorAll('.slide-pic li');
@@ -16,6 +17,7 @@
 	    }
 	}
 -->
+ 
 <template>
 	<div id="slideshow" @mouseleave="runInv" @mouseenter="clearInv">
 		<div class='slideshow-pics'>
@@ -50,7 +52,6 @@ export default {
 	data() {
       return {
       	// invId相当于js的元素特性，jq的$(function () {})作用域的变量
-      	
       	currentIndex: 0,
       	invId: null,
       	timing: 0
