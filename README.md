@@ -3,9 +3,7 @@ My demo and component
 
 jQuery--放大镜demo
 ---
-预览地址:  
-[放大镜](https://alcantara6.github.io/demo-component/demo-zoom/zoom.html)  
-[图片异步加载的测试](https://alcantara6.github.io/demo-component/demo-zoom/analyse_of_image_loading.html)   
+预览地址: [放大镜](https://alcantara6.github.io/demo-component/demo-zoom/zoom.html)，[图片异步加载的测试](https://alcantara6.github.io/demo-component/demo-zoom/analyse_of_image_loading.html)  
 [博客：用jQuery编写放大镜效果以及图片异步加载的测试](http://blog.csdn.net/alcantara/article/details/78117956 '点击查看博文')这是一篇关于本人编写的放大镜demo的详细博文，包含对关键点、bug的分析，以及针对图片异步加载的测试。  
 ![放大镜插件效果图](./demo-zoom/images/demo展示效果.png '效果图')  
 
@@ -24,7 +22,7 @@ jQuery--放大镜demo
 轮播图
 ---
 ### 1. jQuery方法
-**预览地址**：
+**预览地址**：[jQuery轮播--滚动](https://alcantara6.github.io/demo-component/slideshow_by_jQuery/zoom.html/slideShow_roll.html)，[jQuery轮播--淡入淡出](https://alcantara6.github.io/demo-component/slideshow_by_jQuery/zoom.html/slideShow_fade.html)  
 jQuery方法实现幻灯片/轮播效果，思路为图片元素横向排列，鼠标mouseover事件获取当前图片序列，jQuery动画根据序列改变图片集的位置。
 
 #### 项目特点
@@ -59,7 +57,7 @@ jQuery方式的链式操作使得代码相当简练。
 
 
 ### 2. Vue方法
-**预览地址**：
+**预览地址**：[Vue轮播](https://alcantara6.github.io/demo-component/vue-component/dist/index.html)   
 #### 组件特点
 **直接引入，更换你自己的图片即可。图片大小，媒体类型，窗口大小都是自适应的。**
 Vue方法实现幻灯片/轮播效果，思路为`data`中的响应式数据控制图片显示、隐藏，`v-if`结合`transform`/`transition`过渡控制图片的切换，计算属性返回目标图片序列并通过`click`(或`mouseover`)事件传入`methods`中的切换函数。
@@ -84,8 +82,9 @@ Vue方法实现幻灯片/轮播效果，思路为`data`中的响应式数据控�
 
 todoListt
 ---
+**预览地址**：[todoList](https://alcantara6.github.io/demo-component/app-todoList/dist/index.html)   
 todoList是Vue的入门实战小项目，我的todoList有以下几个突出项：
 * 待办事项`:disabled`属性与isDone绑定，即完成后就不可再更改表单的value(checkbox)，如要更改可点选后面的重置按钮
 * 加入完成时间。每项确认完成后，插入实时完成时间，`new Date().toLocaleString()`
 * `计算属性`中统计已完成、未完成项
-* `使用window.localStorage`，获取和存储待办事项。`watch`选项监听todos的变化，`深度watcher`
+* `使用window.localStorage`，获取和存储待办事项。`watch`选项监听todos的变化，`深度watcher`。不能放在computed中，因store是缓存，计算属性也相当于是缓存。
