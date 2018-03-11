@@ -73,7 +73,7 @@ export default {
 
     /* 宽度要与图片相等 */
     #slideshow {
-        max-width: 100%;
+        max-width: 1024px;
         margin-bottom: 100px;
     }
 </style>
