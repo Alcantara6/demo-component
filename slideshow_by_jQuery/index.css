@@ -1,0 +1,73 @@
+/* @group general style ………………………………………………………*/
+*{
+	margin: 0; 
+	padding: 0;
+}
+body{
+	font: 12px/1.5 Verdana, Geneva, Arial, "宋体", Sans-serif;
+}
+ul,ol,li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+a:link{
+	color: #000;
+}
+a>img{
+	display: block;
+}
+/*part1 slideShow*/
+#slideShow {
+	height: 311px;
+	position: relative;
+}
+/*part1-1 showPic*/
+#showPic {
+	width: 550px; 
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+#showPic ul{
+	width: 2750px;
+	position: absolute;
+}
+#showPic ul li{
+	float: left;
+}
+#slideShow .tab{
+	position: absolute;
+	overflow: hidden;
+	left: 0; 
+	bottom: 0;
+}
+#slideShow .tab li{
+	float: left;
+	width: 108px;
+	margin-right: 2px;
+	text-align: center;
+	font: 14px/1.5 Arial;
+	color: #FFF;
+}
+#slideShow .tab .last{
+ 	width: 110px;
+ 	margin: 0;
+}
+#slideShow .tab a{
+	display: block;
+	padding: 5px 10px;
+	color: #FFF;
+	background: #625D5D; 
+	opacity: 0.7;
+}
+#slideShow .tab a:hover{
+	text-decoration: none;
+}
+.chos {
+	background: #37A7D7 url(./images/adindex.gif) no-repeat center bottom!important;
+}
