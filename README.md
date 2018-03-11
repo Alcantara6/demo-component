@@ -3,9 +3,9 @@ My demo and component
 
 jQuery--放大镜demo
 ---
-预览地址：  
-[放大镜]()  
-[图片异步加载的测试]()  
+预览地址:  
+[放大镜](https://alcantara6.github.io/demo-component/demo-zoom/zoom.html)  
+[图片异步加载的测试](https://alcantara6.github.io/demo-component/demo-zoom/analyse_of_image_loading.html)   
 [博客：用jQuery编写放大镜效果以及图片异步加载的测试](http://blog.csdn.net/alcantara/article/details/78117956 '点击查看博文')这是一篇关于本人编写的放大镜demo的详细博文，包含对关键点、bug的分析，以及针对图片异步加载的测试。  
 ![放大镜插件效果图](./demo-zoom/images/demo展示效果.png '效果图')  
 
@@ -81,3 +81,11 @@ Vue方法实现幻灯片/轮播效果，思路为`data`中的响应式数据控�
   * 获取、设置图片窗口尺寸：`DOM操作`，`clientWidth`，`.style.width`
   * 获取图片实际尺寸：`naturalHeight`属性，`naturalWidth`属性，`Img对象`
   * 解决图片异步加载：`window.onload`调用，`window.onresize`(性能优化)调用，`mounted`钩子函数中调用
+
+todoListt
+---
+todoList是Vue的入门实战小项目，我的todoList有以下几个突出项：
+* 待办事项`:disabled`属性与isDone绑定，即完成后就不可再更改表单的value(checkbox)，如要更改可点选后面的重置按钮
+* 加入完成时间。每项确认完成后，插入实时完成时间，`new Date().toLocaleString()`
+* `计算属性`中统计已完成、未完成项
+* `使用window.localStorage`，获取和存储待办事项。`watch`选项监听todos的变化，`深度watcher`
