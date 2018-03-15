@@ -80,7 +80,7 @@ Vue方法实现幻灯片/轮播效果，思路为`data`中的响应式数据控�
   * 获取图片实际尺寸：`naturalHeight`属性，`naturalWidth`属性，`Img对象`
   * 解决图片异步加载：`window.onload`调用，`window.onresize`(性能优化)调用，`mounted`钩子函数中调用
 
-todoListt
+todoList
 ---
 **预览地址**：[todoList](https://alcantara6.github.io/demo-component/app-todoList/dist/index.html)   
 todoList是Vue的入门实战小项目，我的todoList有以下几个突出项：

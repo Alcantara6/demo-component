@@ -25,7 +25,8 @@ a img {
 	margin-left: 330px;
 }
 #zoom-window {	
-	position: absolute;   /* 不占用文字空间 */
+	/* 不占用文字空间 */
+	position: absolute;   
 	display: none;
 	overflow: hidden;
 	border: 1px solid #ccc;
