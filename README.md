@@ -1,4 +1,4 @@
-My demo and component
+My component and plugin
 ===
 
 jQuery--放大镜demo
