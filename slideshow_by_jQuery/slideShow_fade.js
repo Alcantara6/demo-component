@@ -1,6 +1,5 @@
 //轮播效果
 $(function() {
-	//这里都是$函数内的全局变量
 	var $tabLinks = $("#slideShow .tab a");
 	var $picUl = $("#showPic ul");
 	// 选项卡数量

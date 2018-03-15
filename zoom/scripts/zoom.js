@@ -7,7 +7,7 @@ $(function () {
 	var mSize = 120;
 	//创建放大镜
 	var $m_glass = $("<div id ='m-glass'></div>");
-	// 缩略图的位置初始化，可不可以不设为全局变量?
+	// 缩略图的位置初始化
 	var dpPos = null;
 	// 放大比例
 	var scale = [];	
@@ -23,12 +23,12 @@ $(function () {
 	    $zoom_window.height(scale[1] * mSize + "");
 	});
 
-    // 鼠标进入缩略图
+	// 鼠标进入缩略图
 	$("#product-zoom a").mouseenter(function (e) {
 		// 缓存图片title，放大镜在图片上时移除
 		this.myTitle = this.title;
 		this.title = '';
-		// 缩略图位置
+		// 获取缩图图位置
 		dpPos = $parent.offset();
 		//改变放大镜的位置
 		showGlass(e, dpPos, dpWidth, dpHeight);

@@ -2,7 +2,6 @@
 	<div id="slideshow" @mouseleave="runInv" @mouseenter="clearInv">
 		<div class='slideshow-pics'>
 			<a :href="pictures[currentIndex].link">
-			    <!-- 不能用v-show，用v-if!!! -->
 				<transition :name="transName[0]">	
 				    <img class="slide-img" v-if="isShow" :src="pictures[currentIndex].img_url" alt="点击查看">
 				</transition>
@@ -38,7 +37,6 @@ export default {
 
 	data() {
       return {
-      	// invId相当于js的元素特性，jq的$(function () {})作用域的变量
       	currentIndex: 0,
       	invId: null,
       	isShow: true,
