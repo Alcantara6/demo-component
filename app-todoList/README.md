@@ -1,4 +1,4 @@
-todoListt
+todoList
 ---
 **预览地址**：[todoList](https://alcantara6.github.io/demo-component/app-todoList/dist/index.html)   
 todoList是Vue的入门实战小项目，我的todoList有以下几个突出项：

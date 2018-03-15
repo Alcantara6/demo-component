@@ -1,17 +1,7 @@
-<!--     
-    不能采用多个元素的过渡方式，transition包裹多个元素，这样的话多个元素不能同时过渡，而是按顺序来
--->
-<!-- 动态过渡：v-bind transition的name属性，实现不同方式的切换 -->
-<!-- rev.2018-2-1: 
-    runInv内增加幻灯片始终向左滑动的；
-    点击同一tab，幻灯片不滑动； 
--->
-
 <template>
 	<div id="slideshow" @mouseleave="runInv" @mouseenter="clearInv">
 		<div class='slideshow-pics'>
 			<a :href="pictures[currentIndex].link">
-			    <!-- 不能用v-show，用v-if!!! -->
 				<transition :name="transName[0]">	
 				    <img class="slide-img" v-if="isShow" :src="pictures[currentIndex].img_url" alt="点击查看">
 				</transition>
@@ -47,7 +37,6 @@ export default {
 
 	data() {
       return {
-      	// invId相当于js的元素特性，jq的$(function () {})作用域的变量
       	currentIndex: 0,
       	invId: null,
       	isShow: true,
@@ -99,12 +88,10 @@ export default {
         // 不能实现自适应窗口变化，增加window.onresize事件
         window.onresize = () => {
         	let resizeTimer = null;
-    		// 通过增加定时器的方式来让代码延迟执行，这样每次窗口改变的时候，我们都清除事件，只有当他停下来之后，才会继续执行。这个方法虽然可以解决resize执行多次的问题，但是感觉还不够完美。
+    		// 通过增加定时器的方式来让代码延迟执行，解决resize执行多次的问题
     		if(resizeTimer) {
     			clearTimeout(resizeTimer);   // 清除队列
-    			// console.log('回调函数的队列被清除了');
     		}
-    		//每次窗口变化函数都会被加入队列，但因为有100延迟，下一次窗口再动的时候，之前的函数队列就被清除，直到最后停下来，执行最后一次被加入队列的函数
     		resizeTimer = setTimeout(this.setSlideshowHeight,100);  
         }
         // mounted钩子函数中也要调用,热加载更新时设置，否则高度为0
@@ -115,12 +102,9 @@ export default {
 
 	methods: {
 		// 设置图片窗口的高度
-		// 图片要有左右切换效果，需设置position:absolute,父元素窗口不能撑开	
-	    // 为使组件复用，自识别幻灯片图片的尺寸，只能用JS设置图片窗口div的高度
 		setSlideshowHeight() {
 			let slideshowWidth = document.querySelector('#slideshow').clientWidth;
 			let frame = document.querySelector('.slideshow-pics');
-			// 宽度可以根据100%属性自适应，但高度不能，要用js
 			// 根据主页面设置的幻灯区宽度获取图片比例计算幻灯区高度
 			frame.style.height = this.imgScale * slideshowWidth + 'px';
 		},
@@ -186,7 +170,6 @@ export default {
 </script>
 
 <style scoped>
-/*过渡的类不能合并在一起写*/
 .from-right-enter-active {
 	transition: all .5s;
 }
@@ -213,7 +196,7 @@ export default {
 }
 
 #slideshow {
-    position: relative;   /* 如何解决高度自适应问题 */
+    position: relative;   
 }
 .slideshow-pics {             
     width: 100%;
