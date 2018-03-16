@@ -95,6 +95,7 @@ export default {
 		// 需要在图片加载完成后计算幻灯窗口高度
         window.onload = () => {
             this.setSlideshowHeight();
+            this.runInv();
         }
         // 不能实现自适应窗口变化，增加window.onresize事件
         window.onresize = () => {
@@ -109,8 +110,8 @@ export default {
         }
         // mounted钩子函数中也要调用,热加载更新时设置，否则高度为0
 		this.setSlideshowHeight();
-		// 相当于js的window.onload，jq的trigger(mouseleave)
-		this.runInv(); 
+		// runInv放在这里没用
+		// this.runInv(); 
 	},
 
 	methods: {
