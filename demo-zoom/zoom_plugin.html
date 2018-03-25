@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset=utf-8 />
+		<title>zoom</title>
+		<link rel="stylesheet" href="style/zoom_plugin.css" />
+		<script type="text/javascript" src="scripts/jquery.js"></script>
+	</head>
+	<body>
+	    <div id="product-zoom">
+	        <a href="images/product_image_big.jpg" title="毛呢外套中长款过膝呢大衣">
+	            <img src="images/product_image_small.jpg" alt="毛呢外套中长款过膝呢大衣">
+	        </a>
+		</div>
+	<script type="text/javascript" src="scripts/jquery.zoom.js"></script>
+	<script>
+        // 缩略图id须设为product-zoom，参数thumbWidth为缩略图尺寸，zoomSize为放大镜尺寸
+        $('#product-zoom').zoom({
+            thumbWidth: 300,
+            zoomSize: 100
+        });
+	</script>
+	</body>
+</html>
