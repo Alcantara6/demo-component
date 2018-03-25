@@ -12,7 +12,13 @@
 	            <img src="images/product_image_small.jpg" alt="毛呢外套中长款过膝呢大衣">
 	        </a>
 		</div>
-		<div id="shop-details"></div>
-	<script type="text/javascript" src="scripts/zoom.js"></script>
+	<script type="text/javascript" src="scripts/jquery.zoom.js"></script>
+	<script>
+        // 缩略图id须设为product-zoom，参数thumbWidth为缩略图尺寸，zoomSize为放大镜尺寸
+        $('#product-zoom').zoom({
+            thumbWidth: 300,
+            zoomSize: 100
+        });
+	</script>
 	</body>
 </html>
