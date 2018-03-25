@@ -1,13 +1,13 @@
 My component and plugin
 ===
 
-jQuery--放大镜demo
+jQuery--放大镜插件
 ---
 预览地址: [放大镜](https://alcantara6.github.io/demo-component/demo-zoom/zoom.html)，[图片异步加载的测试](https://alcantara6.github.io/demo-component/demo-zoom/analyse_of_image_loading.html)  
 [博客：用jQuery编写放大镜效果以及图片异步加载的测试](http://blog.csdn.net/alcantara/article/details/78117956 '点击查看博文')这是一篇关于本人编写的放大镜demo的详细博文，包含对关键点、bug的分析，以及针对图片异步加载的测试。  
 ![放大镜插件效果图](./demo-zoom/images/demo展示效果.jpg '效果图')  
 
-#### 使用方法
+#### 插件使用方法
 1. html结构为
     ```html
     /* 缩略图和放大图都放在./images文件夹，a中的href为大图地址、img中的src为小图地址 */
